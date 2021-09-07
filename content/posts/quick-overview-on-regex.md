@@ -22,4 +22,9 @@ Lately I decided to brush up and a delve a bit deeper into this seemingly compli
 
 After quickly skimming through I found 1, 3, 4, 6 at beginner level & 2, 5 a bit more elaborate of the first set I chose 6 the [youtube video](https://www.youtube.com/watch?v=rhzKDrUiJVk) from [web dev simplified](https://www.youtube.com/channel/UCFbNIlppjAuEX4znoulh0Cw) as it seemed straight to the point from the word go. The video as the title suggests really helped me understand the regular expressions real quick so kudos to the channel. I also went through 3 which helped me further understand and apply my learning.
 
-So let me summarize what i learnt from these sources. 
+So let me summarize what i learnt from these sources. I have used the [Regexr](https://regexr.com) site to try out all the concepts explained in the video which is also suggested by the video.
+
+1. Search by literal characters
+    when we think of a string it is basically a sequence of characters and with regualar expressions we write patterns which match a certain sequence of characters but in simplest of cases those patterns themselves can be literal characters.
+
+    https://adityatelange.in/blog/hugo-watermarking-images/
