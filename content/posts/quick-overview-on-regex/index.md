@@ -27,4 +27,11 @@ So let me summarize what i learnt from these sources. I have used the [Regexr](h
 1. Search by literal characters
     when we think of a string it is basically a sequence of characters and with regualar expressions we write patterns which match a certain sequence of characters but in simplest of cases those patterns themselves can be literal characters.
 
+    {{<figure src="images/regex1.png" >}}
+
+    https://gohugo.io/content-management/organization/
+    https://gohugo.io/content-management/page-bundles/
+    https://gohugo.io/content-management/page-resources/
+    https://gohugo.io/content-management/image-processing/
+
     https://adityatelange.in/blog/hugo-watermarking-images/
