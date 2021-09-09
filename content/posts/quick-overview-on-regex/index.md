@@ -29,6 +29,20 @@ So let me summarize what i learnt from these sources. I have used the [Regexr](h
 
     {{<figure src="images/regex1.png" >}}
 
+Search by literal characters is all good but the real power of regular expressions lies in use of some special characters which give a sort of short hand way of representing a sequence of characters
+
+2. First of such  characters is "+", by suffixing any character with "+" in a regular expression it literally means asking the regex engine to search for 1 or more of the character which immedeately precede the "+" character so an expression "e+" would mean to search for substrings which consist of "at least" 1 "e" as shown below.
+
+    {{<figure src="images/regex2.png" >}}
+
+3. If the special character "+" stood for 1 or more of the preceding character then the "?" stands for 0 or 1 of the preceding character, so adding onto the earlier expression "e+k?" would mean search for a substring which atleast has 1 e followed by a k which is optional so "e", "ee", "eeeeek", "eeeee" are all matches while the string "k" or any other string that doesnt contain an "e" isnt a match, as we can see below
+    
+    {{<figure src="images/regex3.png" >}}
+
+4. Going with the "+" character is the "\*" character which matches zero or more of the preceding character, so it actually means the character to be searched is optional but when it occurs it may be repeated any number of times. So an expression "e*" will match a sequence of "e" character
+
+    {{<figure src="images/regex4.png" >}}
+
     https://gohugo.io/content-management/organization/
     https://gohugo.io/content-management/page-bundles/
     https://gohugo.io/content-management/page-resources/
