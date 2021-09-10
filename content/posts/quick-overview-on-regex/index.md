@@ -39,9 +39,40 @@ Search by literal characters is all good but the real power of regular expressio
     
     {{<figure src="images/regex3.png" >}}
 
-4. Going with the "+" character is the "\*" character which matches zero or more of the preceding character, so it actually means the character to be searched is optional but when it occurs it may be repeated any number of times. So an expression "e*" will match a sequence of "e" character
+4. Similar to the "+" character is the "\*" character which matches zero or more of the preceding character, so it actually means the character to be searched is optional but when it occurs it may be repeated any number of times. So an expression "e*" will match a sequence of "e" character
 
     {{<figure src="images/regex4.png" >}}
+
+5. The "." (dot) character represents the wildcard it can match any single character, any meaning letter, digit, whitespace, everything. so what do we do when we need to find the "." character itself, simple we prefix it with  a "\\." in the below example the expression ".at\.?" matches a string which starts with any "." character and then is followed by "at" and then optionally ends with a literal "." character represented by "\.?" hence the words "fate", "cat", "cat." end up being selected.
+
+    {{<figure src="images/regex5.png" >}}
+
+6. Next is "\w" which matches any alphanumeric character while there is "\s" which matches any whitespace character then there are opposite versions of these where "\W" is match any non alphanumeric character & "\S" which is match any non whitespace character. The expression "\w\s" matches any alphanumeric followed by a whitespace character
+
+    {{<figure src="images/regex6.png" >}}
+
+    and the expression "\W\S" matches any non alphanumeric, which means whitespace in the below sample, followed by non whitespace which is alphanumeric in here so the exact opposite result when compared to above i.e the whitespace is trailed by a alphanumeric
+
+    {{<figure src="images/regex7.png" >}}
+
+7. All the above special characters match single characters what if we need to match more than 1 character say for example all words more than 4 characters "\w{4,}"
+
+    {{<figure src="images/regex8.png" >}}
+
+    how about matching exactly 3 characters with "\w{3}"
+
+    {{<figure src="images/regex9.png" >}}
+
+    also match between 3 to 4 charactes with "\w{3,4}" which selects all the words in the sentence
+
+    {{<figure src="images/regex10.png" >}}
+
+8. Grouping characters with square brackets "[]" and paranthesis "()". We can search for range of characters with say "[a-z]" which essentialy means match any character between "a" and "z" and we can also match mutliple types of characters inside these groups so "[A-Za-z]" says match any character between "A" and "Z" or "a" and "z"
+
+    {{<figure src="images/regex11.png" >}}
+
+    {{<figure src="images/regex12.png" >}}
+
 
     https://gohugo.io/content-management/organization/
     https://gohugo.io/content-management/page-bundles/
