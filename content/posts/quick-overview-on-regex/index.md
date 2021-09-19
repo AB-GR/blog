@@ -77,14 +77,47 @@ Search by literal characters is all good but the real power of regular expressio
 
     {{<figure src="images/regex12.png" >}}
 
-    Similarly "()" also works towards grouping characters with the difference that the group so formed can be captured or extracted as a separate match
+    Similarly using the special parentheses "(" and ")" also works towards grouping characters with the difference that the group so formed can be captured or extracted as a separate match. In practice, this can be used to extract information like phone numbers or emails from all sorts of data.
 
     
+    {{<figure src="images/regex14.png" >}}
 
+    The above expression matches a substring of length 2 to 3 which can contain a sequence of t,e,r in any order and can repeat hence the matches er, tre, et.
 
-    https://gohugo.io/content-management/organization/
-    https://gohugo.io/content-management/page-bundles/
-    https://gohugo.io/content-management/page-resources/
-    https://gohugo.io/content-management/image-processing/
+9. The last set of special characters are caret "^" and "$". The "^" is match the character or group in the suffix only at the beginning of the test string, 
 
-    https://adityatelange.in/blog/hugo-watermarking-images/
+    As seen below the expression tries to match the first T or t at the beginning of our test string
+
+    {{<figure src="images/regex15.png" >}}
+
+    notice it doesnt match the character at the beginning this can be done by adding the multiline flag
+
+    {{<figure src="images/regex16.png" >}}
+
+    opposite is the behaviour of the "$" character it matches regex string to the end of a given test string, below are both non-multiline and multiline match versions of the expression
+
+    {{<figure src="images/regex17.png" >}}
+
+    {{<figure src="images/regex18.png" >}}
+
+This is pretty much all the basic special characters in regular expressions, other than these something of significance which you would probably be needing when you work with regexes are look aheads and look behinds
+
+10. look behind comes in two flavors the positive look behind and the negative look behind. The idea of a positive look behind is to match a character or characters after a certain sequence or expression. For instance lets try to match any character after the word "The" or "the" the positive look behind is indicated by "=" in the sequence "(?<=(T|t)he)."
+
+{{<figure src="images/regex20.png" >}}
+
+Negative look behind is the exact opposite of positive, so with the above example it can be negated with the expression "(?<!(T|t)he)." which basically translates into all characters which are not after "The" or "the". As we can see the result includes all characters except the ones we found with the positive look behind i.e the charcter that followed "(T|t)he".
+
+{{<figure src="images/regex21.png" >}}
+
+11. Again look ahead comes in two flavors the positive and negative look ahead, look ahead matches any character or characters that come before certain character(s) mentioned in the expresion syntax wise its pretty similar to look behind except for the "<" character.
+
+so if we want any character that comes before "at" this would be the expression ".(?=at)"
+
+{{<figure src="images/regex22.png" >}}
+
+and negative of this is an expression ".(?!at)" which translates to all characters that do not come before "at" which basically includes everything excluded in the above result so its a contrast of the above result.
+
+{{<figure src="images/regex23.png" >}}
+
+So thats a really good summary of regular expressions in a nutshell and should immedeately help your work with regex. The links above talk more about regexes in terms of its application and has various working examples for practice. So that is good pointer if you need to dive deeper.
