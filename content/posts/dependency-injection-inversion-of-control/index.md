@@ -21,7 +21,7 @@ Now there are obvious problems with this tight coupling such as difficulty in te
 
 In such situations its always better to depend on an abstraction or an interface as it removes the headache of dependency lifecycle management from the consumer whereby the consumer just states his demands or requirements in the form of an abstraction/contract/interface and the dependency management container is responsible to supply it at run time. However simplifying the life of the consumer code does come at a cost in terms of use of containers and its boiler plate code but that is a trade off we need to take in order to achieve stability in the application over the long term
 
-A small real life example will make this simpler to understand. Imagine seeking a service of a helper to take care of your child, now a lot depends on the quality service provided by the helper in terms of trustworthiness, reliability etc that you should be able to derive the maximum benefit from such a service, now imagine if there are issues in these expectations from the helper then you'd mostly be in a firefighting mode by say having to call a day off work when the helper didnt show up. These issues at a high level can be attributed to the tight coupling between you and the helper.
+A small real life example will make this simpler to understand. Imagine seeking a service of a helper to take care of your child, now a lot depends on the quality service provided by the helper in terms of trustworthiness, reliability etc for you should be able to derive the maximum benefit from such a service, now imagine if there are issues in satisfying these expectations at helpers end then you'd mostly be in a firefighting mode by say having to call a day off work when the helper didnt show up. These issues at a high level can be attributed to the tight coupling between you and the helper.
 
 One way to solve this problem is to abstract away the helpers service to a service provider agency. With an agency you provide your requirments and expectation in terms of quality of service and it is then their responsibility to satisfy it for continuity of service and they'd highly likely do so by finding the right fit for the job. Ofcourse all of these guarantees in service raises the cost of the service with the middleman service provider taking a cut from the service cost, but then that is trade off you need to decide upon if you value peace of mind over cost.
 
@@ -38,7 +38,7 @@ It usually involves a container which is responsible for providing all the depen
 
 the container is also responsible for dependency configuration at the app/process startup
 
-Some more links that explaing this concept very well.
+Some more links that explain this concept very well.
 
 https://martinfowler.com/articles/injection.html#InversionOfControl
 https://stackoverflow.com/a/3311657/6024150
