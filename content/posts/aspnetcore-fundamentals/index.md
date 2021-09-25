@@ -24,3 +24,37 @@ The startup class as the name indicates is the starting point of the app which c
 For more information, see [App startup in ASP.NET Core]().
 
 ### Dependency injection
+ASP.NET Core has a built in DI framework for providing configured services across the  app. Services are configured in `StartUp.ConfigureSerices` method like how a efcore dbcontext is configured below for consumption by the app code.
+
+```
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddDbContext<RazorPagesMovieContext>(options => 
+    options.UseSqlServer(Configuration.GetConnectionString("RazorPagesMovieContext")));
+
+    services.AddControllersWithViews();
+    services.AddRazorPages();
+}
+```
+And the services can be consumed via constructor injection by declaring a type or an interface implementing a type needed, as a constructor parameter. Below we are accessing the db context declared in the previous block of code in a controller.
+
+```
+public class IndexModel : PageModel
+{
+    private readonly RazorPagesMovieContext _context;
+
+    public IndexModel(RazorPagesMovieContext context)
+    {
+        this._context = context;
+    }
+
+    // ...
+
+    public async Task OnGetAsync()
+    {
+        Movies = await _context.Movies.ToListAsync();
+    }
+}
+```
+
+If for some reason the built in IOC does not meet all the app's requirements then a third party IOC also can be used.
