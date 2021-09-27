@@ -58,3 +58,60 @@ public class IndexModel : PageModel
 ```
 
 If for some reason the built in IOC does not meet all the app's requirements then a third party IOC also can be used.
+
+### Middleware
+The ASP.NET Core request processing pipeline is composed of a series of middleware components. Each such component performs operation on an `HttpContext` and then either calls the next middleware component or terminates the request. ASP.NET Core provides a rich set of inbuilt middleware and we can also write custom middleware to suit our needs. By default a middleware component is added to the request processing pipeline by invoking the `Use..` extension from the `StartUp.Configure` method. For example to render processing of static files call `UseStaticFiles` as shown below.
+
+```
+public void Configure(IApplicationBuilder app)
+{
+    app.UseHttpsRedirection();
+    app.UseStaticFiles();
+
+    app.UseRouting();
+
+    app.UseEndpoints(endpoints =>
+    {
+        endpoints.MapDefaultControllerRoute();
+        endpoints.MapRazorPages();
+    });
+}
+```
+
+### Host
+When the ASP.NET Core app starts up it builds a host, which is an encapsulation of all resourecs available to the app which includes
+1. An http server implementation
+2. Middleware components
+3. Configuration
+4. DI services
+5. Logging
+
+There are two kinds of hosts
+1. .NET Generic host
+2. ASP.NET Core Web host
+
+No 1. is recommended as No 2. exists for a backward compatibility purposes when migrating from asp.net core 2.x apps
+
+The following example creates a .NET Generic host
+
+```
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        CreateHostBuilder(args).Build().Run();
+    }
+
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(webBuilder => {
+            webBuilder.UseStartUp<StartUp>();
+      });
+}
+
+```
+
+The `CreateDefaultBuilder` & `ConfigureWebHostDefaults` methods do the following
+1. Use Kestrel as web server and enable IIS integration.
+2. Load settings from appsettings.json, appsettings.{environment}.json, environment variables, command line args and other configuration sources.
+3. Send logging output to Console and other debug providers.
