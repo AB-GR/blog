@@ -115,3 +115,21 @@ The `CreateDefaultBuilder` & `ConfigureWebHostDefaults` methods do the following
 1. Use Kestrel as web server and enable IIS integration.
 2. Load settings from appsettings.json, appsettings.{environment}.json, environment variables, command line args and other configuration sources.
 3. Send logging output to Console and other debug providers.
+
+The Generic Host helps in non web apps such as background tasks use cross cutting functionality/services such as DI, Logging, Configuration & app lifetime managment.
+
+### Server
+ASP.NET core app runs on a server which is an http server implementation and responds to http requests. The request is surfaced to an app as HttpContext object which is basically a composition of RequestFeature interfaces.
+
+On windows platform the server can a kestrel server, IIS (in proc), http.sys, on mac OS & linux it is a kestrel server.
+
+kesterel is a cross platform web server implementation provided by ASP.NET Core and can run independently as an edge server or can run in reverse proxy configuration with native server implementations like IIS, Nginx, apache etc.
+
+### Configuration
+ASP.NET Core provides a configuration framework that supports reading from multiple sources/configuration providers such as .json files, .xml files, environment variables, command line args and all these settings are ultimately available as name value pairs in the app, there are built in configuration providers that do the job but we can always create a custome one. 
+
+After all configuration settings are loaded the settings from environment variables override the same name settings from appsettings.json
+
+The preferred way to related configuration values is using the options pattern.
+
+Confidential configuration such as passwords are managed using secret manager while secrets in production can be managed using azure key vault.
