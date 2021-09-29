@@ -133,3 +133,44 @@ After all configuration settings are loaded the settings from environment variab
 The preferred way to related configuration values is using the options pattern.
 
 Confidential configuration such as passwords are managed using secret manager while secrets in production can be managed using azure key vault.
+
+### Environments
+Execution environments such as development, staging, production are supported out of the box in ASP.NET  Core. We can specify the environment the app is running in by setting the  ASPNETCORE_ENVIRONMENT variable ASP.NET Core reads the environment varibale at startup and stores the value in IWebHosEnvironment service which is available throughout the app via DI.
+
+The following example configures the app to set detailed error information in case of a Development environment
+
+```
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+    if (env.IsDevelopment())
+    {
+        app.UseDeveloperExceptionPage();
+    }
+    else
+    {
+        app.UseExceptionHandler("/Error");
+        app.UseHsts();
+    }
+```
+
+### Logging
+ASP.NET Core logging supports multiple logging providers like
+1. Console
+2. Debug
+3. Trace Events
+4. Windows Event Log
+5. Trace Source
+6. App Service
+7. App  Insights
+
+To log first resolve a ILogger<TCategoryName> via DI and call the LogInformation method, this method accepts any number of characters which most of the time is used to prepare the error message by some logging providers use the parameters to implement strucutred or semantic logging
+
+### Routing
+A route is a url pattern that is mapped to a handler. A handler may be a razor page, an action method or a middleware. ASP.NET Core routing gives you control over the urls used by your app.
+
+### Error handling
+ASP.NET Core has following features
+1. A developer exception page
+2. Custom error pages
+3. Static status code pages
+4. Startup exception handling
