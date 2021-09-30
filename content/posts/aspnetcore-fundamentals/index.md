@@ -174,3 +174,17 @@ ASP.NET Core has following features
 2. Custom error pages
 3. Static status code pages
 4. Startup exception handling
+
+### Content root
+Content root is the base path for
+1. Host exe hosting the app
+2. The app dll
+3. Content files used by the  app such as 
+    Razor files (.cshtml, .razor), Config files (.json, .xml), Data files(.db)
+4. the web root (wwwroot)
+
+### Web root
+Web root is the base path for static content in wwwroot such as 
+1. Stylesheet (css)
+2. Javascript (.js)
+3. Images (.png, .jpg)
