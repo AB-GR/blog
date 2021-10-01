@@ -30,3 +30,26 @@ public class Program
             });
 }
 ```
+
+### The ConfigureServices method
+The `ConfigureServices` method is
+1. Optional
+2. Called before the `Configure` method
+3. Where configuration options are set by convention
+
+For features that require substantial setup, there are `Add{Service}` extension methods on IServiceCollection such as AddDbContext, AddStaticFiles, AddRazorPages, AddControllersWithViews, AddDefaultIdentity, AddEntityFrameworkStores etc.
+
+Add such services to service collection makes them available in the App as well as the `Configure` method.
+
+### The Configure method
+The `Configure` method configures the middleware which creates the request pipeline which determines how the app responds to http requests. This method is injected with an instance of `IApplicationBuilder` on which the `Use` extension methods are called which configure one or more middleware. The middleware executes some logic on HttpContext and then calls the next middleware component or shortcircuits the call if appropriate.
+
+The ASP.NET Core templates for MVC & such come with prebuilt `Configure` method code which provide `Use` extensions to
+1. Set up developer exception page
+2. Exception handling
+3. HSTS
+4. Http redirection
+5. Static files
+6. Setup up MVC or Razor pages
+
+Apart from an instance of `IApplicationBuilder` the  `Configure` method also exposes `IWebHostEnvironment` & `ILoggerFactory` it can also include in its signature any service that has been configured in `ConfigureServices` method.
