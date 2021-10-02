@@ -53,3 +53,122 @@ The ASP.NET Core templates for MVC & such come with prebuilt `Configure` method 
 6. Setup up MVC or Razor pages
 
 Apart from an instance of `IApplicationBuilder` the  `Configure` method also exposes `IWebHostEnvironment` & `ILoggerFactory` it can also include in its signature any service that has been configured in `ConfigureServices` method.
+
+### Configure services without Startup
+The methods `Configure` and `ConfigureServices` can be called on the host builder as in the `CreateHostBuilder` method shown below, thereby negating the  need of a separate StartUp class. These methods are convenience methods and can be chained up but calls to multiple `ConfigureServices` get appended and in case of multiple calls to `Configure` on the last one gets called.
+
+```
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        CreateHostBuilder(args).Build().Run();
+    }
+
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration((hostingContext, config) =>
+            {
+            })
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.ConfigureServices(services =>
+                {
+                    services.AddControllersWithViews();
+                })
+                .Configure(app =>
+                {
+                    var loggerFactory = app.ApplicationServices
+                        .GetRequiredService<ILoggerFactory>();
+                    var logger = loggerFactory.CreateLogger<Program>();
+                    var env = app.ApplicationServices.GetRequiredService<IWebHostEnvironment>();
+                    var config = app.ApplicationServices.GetRequiredService<IConfiguration>();
+
+                    logger.LogInformation("Logged in Configure");
+
+                    if (env.IsDevelopment())
+                    {
+                        app.UseDeveloperExceptionPage();
+                    }
+                    else
+                    {
+                        app.UseExceptionHandler("/Home/Error");
+                        app.UseHsts();
+                    }
+
+                    var configValue = config["MyConfigKey"];
+                });
+            });
+        });
+}
+```
+
+### Extend Startup with startup filters
+This is another way of configuring middlewares the key difference is that instead of calling `app.Use{Middleware}` in the `Configure` method we inject a type implementing `IStartupFilter` which internall calls the `Use{Middleware}` method. as shown in the code below.
+
+The Middleware
+```
+public class RequestSetOptionsMiddleware
+{
+    private readonly RequestDelegate _next;
+
+    public RequestSetOptionsMiddleware( RequestDelegate next )
+    {
+        _next = next;
+    }
+
+    // Test with https://localhost:5001/Privacy/?option=Hello
+    public async Task Invoke(HttpContext httpContext)
+    {
+        var option = httpContext.Request.Query["option"];
+
+        if (!string.IsNullOrWhiteSpace(option))
+        {
+            httpContext.Items["option"] = WebUtility.HtmlEncode(option);
+        }
+
+        await _next(httpContext);
+    }
+}
+```
+
+The RequestSetOptionsMiddleware is configured in the RequestSetOptionsStartupFilter class:
+```
+public class RequestSetOptionsStartupFilter : IStartupFilter
+{
+    public Action<IApplicationBuilder> Configure(Action<IApplicationBuilder> next)
+    {
+        return builder =>
+        {
+            builder.UseMiddleware<RequestSetOptionsMiddleware>();
+            next(builder);
+        };
+    }
+}
+```
+
+The IStartupFilter is registered in the service container in ConfigureServices.
+```
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        CreateHostBuilder(args).Build().Run();
+    }
+
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+           .ConfigureAppConfiguration((hostingContext, config) =>
+           {
+           })
+         .ConfigureWebHostDefaults(webBuilder =>
+         {
+             webBuilder.UseStartup<Startup>();
+         })
+        .ConfigureServices(services =>
+        {
+            services.AddTransient<IStartupFilter,
+                      RequestSetOptionsStartupFilter>();
+        });
+}
+```
