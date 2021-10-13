@@ -31,7 +31,7 @@ Since we can hook into before or after an action is executed using a filter, the
 #### Authorization Filters
 Authorization filters run first in the pipeline and are used to determine if the user is authorized to invoke the request/action. Authorization filters short circuit the pipeline if the request is not authorized.
 
-### Resource Filters
+#### Resource Filters
 As the name suggests the filter can be used to handle resources, one of the most common use cases of this filter is handling caching as it is beneficial performance wise to send a cached resource response, if available, instead of invoking the whole pipeline, This filter gets invoked immedeatly after Authorization filter.
 
 
