@@ -45,6 +45,7 @@ As the name suggests the filter can be used to handle resources, one of the most
 
 ## References
 https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters?view=aspnetcore-5.0#how-filters-work
+https://code-maze.com/filters-in-asp-net-core-mvc/
 https://andrewlock.net/exploring-middleware-as-mvc-filters-in-asp-net-core-1-1/
 https://andrewlock.net/series/adding-a-url-culture-provider-using-middleware-as-filters/
 https://stackoverflow.com/questions/42582758/asp-net-core-middleware-vs-filters
