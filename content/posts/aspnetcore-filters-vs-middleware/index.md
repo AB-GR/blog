@@ -17,12 +17,22 @@ Filters are components that run in the ASP.NET Core action invocation pipeline o
 
  {{<figure src="images/filter-pipeline-1.png" >}}
 
+ to view how the action invocation pipeline is a part of the request pipeline examine the image below, the `Endpoint` middleware is the last one that gets executed which leads us to the actiona invocation pipeline
+
+ {{<figure src="images/middleware-pipeline.svg" >}}
+
+ after the Endpoint middleware takes over there are two different kinds of invocation pipelines for MVC & Razor pages as show below before the final action or page is invoked.
+
+ {{<figure src="images/mvc-endpoint.svg" >}}
+
 ### Types of filters
-Since we can hook into before or after an action is executed they can be used to address a variety of cross cutting concerns at a single place. For instance, instead of writing duplicate authorization code for each action we could create an authorization filter to handle auth for each action. Based on their function filters can be broadly classified into following
+Since we can hook into before or after an action is executed using a filter, they can be used to address a variety of cross cutting concerns at a single place. For instance, instead of writing duplicate authorization code for each action we could create an authorization filter to handle auth globally for each action. Authorization is one such example and there are different filters that can be classified into the following
 
 #### Authorization Filters
+Authorization filters run first in the pipeline and are used to determine if the user is authorized to invoke the request/action. Authorization filters short circuit the pipeline if the request is not authorized.
 
-
+### Resource Filters
+As the name suggests the filter can be used to handle resources, one of the most common use cases of this filter is handling caching as it is beneficial performance wise to send a cached resource response, if available, instead of invoking the whole pipeline, This filter gets invoked immedeatly after Authorization filter.
 
 
 ## Middleware vs Filters
