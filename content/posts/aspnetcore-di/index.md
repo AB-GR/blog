@@ -6,7 +6,7 @@ description: "More on the DI feature in asp.net core"
 tags: ["asp.net core"]
 ShowToc: false
 ShowBreadCrumbs: false
-draft: false
+draft: true
 ---
 
 
