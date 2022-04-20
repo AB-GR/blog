@@ -6,7 +6,7 @@ description: "Trying to explain that dependency injection is IOC in action"
 tags: ["Architectural principles"]
 ShowToc: false
 ShowBreadCrumbs: false
-draft: false
+draft: true
 ---
 
 We have heard these keywords of DI & IOC being used when it comes to discussing modular and loosely coupled application components. So what are these terms and how are they related ?
