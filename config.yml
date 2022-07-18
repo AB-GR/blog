@@ -1,5 +1,5 @@
 baseURL: "https://abhilashgraja.me/"
-title: PaperMod
+title: Zen Code
 paginate: 5
 theme: "PaperMod"
 
@@ -34,57 +34,57 @@ languages:
                   url: categories/
                   weight: 10
 
-    fr:
-        languageName: ":fr:"
-        languageAltTitle: French
-        weight: 2
-        title: PaperModL2
-        profileMode:
-            enabled: true
-            title: PaperMod
+    # fr:
+        # languageName: ":fr:"
+        # languageAltTitle: French
+        # weight: 2
+        # title: PaperModL2
+        # profileMode:
+            # enabled: false
+            # title: PaperMod
             # imageUrl: "#"
             # imageTitle: my image
             # imageWidth: 120
             # imageHeight: 120
-            subtitle: "☄️ Fast | ☁️ Fluent | 🌙 Smooth | 📱 Responsive"
-            buttons:
-                - name: Blog
-                  url: posts
-                - name: Tags
-                  url: tags
-        menu:
-            main:
-                - name: Archive
-                  url: archives/
-                  weight: 5
-                - name: Tags
-                  url: tags
-                  weight: 10
-                - name: Categories
-                  url: categories
-                  weight: 10
-                - name: Series
-                  url: series
-                  weight: 10
-                - name: NullLink
-                  url: "#"
-                - name: NullLink2
-                  url: "#"
-                - name: NullLink3
-                  url: "#"
+            # subtitle: "☄️ Fast | ☁️ Fluent | 🌙 Smooth | 📱 Responsive"
+            # buttons:
+                # - name: Blog
+                  # url: posts
+                # - name: Tags
+                  # url: tags
+        # menu:
+            # main:
+                # - name: Archive
+                  # url: archives/
+                  # weight: 5
+                # - name: Tags
+                  # url: tags
+                  # weight: 10
+                # - name: Categories
+                  # url: categories
+                  # weight: 10
+                # - name: Series
+                  # url: series
+                  # weight: 10
+                # - name: NullLink
+                  # url: "#"
+                # - name: NullLink2
+                  # url: "#"
+                # - name: NullLink3
+                  # url: "#"
 
-    fa:
-        languagedirection: rtl
-        weight: 3
-        title: PaperMod RTL
-        homeInfoParams:
-            Title: "Hi there \U0001F44B"
-            Content: Welcome to RTL layout
-        menu:
-            main:
-                - name: Tags
-                  url: tags
-                  weight: 10
+    # fa:
+        # languagedirection: rtl
+        # weight: 3
+        # title: PaperMod RTL
+        # homeInfoParams:
+            # Title: "Hi there \U0001F44B"
+            # Content: Welcome to RTL layout
+        # menu:
+            # main:
+                # - name: Tags
+                  # url: tags
+                  # weight: 10
 
 outputs:
     home:
@@ -125,26 +125,26 @@ params:
               url: tags
 
     homeInfoParams:
-        Title: "PaperMod"
+        Title: ""
         Content: >
-            Welcome to demo of hugo's theme PaperMod.
+            Hey 👋, I'm Abhi.
 
-            - **PaperMod** is a simple but fast and responsive theme with useful feature-set that enhances UX.
+            - I am senior full stack dev in Microsoft .NET Technologies.
 
-            - Do give a 🌟 on Github !
-
-            - PaperMod is based on theme [Paper](https://github.com/nanxiaobei/hugo-paper).
+            - This is my space where I try to share my learnings in a simplified manner
 
     socialIcons:
         - name: github
-          url: "https://github.com/adityatelange/hugo-PaperMod"
+          url: "https://github.com/AB-GR"
+        - name: twitter
+          url: "https://twitter.com/AbhilashGRaja"
         - name: KoFi
-          url: "https://ko-fi.com/adityatelange"
+          url: "https://ko-fi.com/abhilashgraja"
         - name: RsS
           url: "index.xml"
 
     editPost:
-        URL: "https://github.com/adityatelange/hugo-PaperMod/tree/exampleSite/content"
+        URL: "https://github.com/AB-GR/blog/tree/main/content"
         Text: "Suggest Changes" # edit text
         appendFilePath: true # to append file path to Edit link
 
