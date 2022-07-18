@@ -1,5 +1,5 @@
 baseURL: "https://abhilashgraja.me/"
-title: Zen Code
+title: Code Zen
 paginate: 5
 theme: "PaperMod"
 
@@ -108,7 +108,7 @@ params:
     ShowBreadCrumbs: true
     ShowCodeCopyButtons: true
     ShowToc: true
-    # comments: false
+    comments: true
     images: ["papermod-cover.png"]
 
     profileMode:
