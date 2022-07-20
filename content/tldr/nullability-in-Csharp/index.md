@@ -29,7 +29,7 @@ This setting is enabled by default in a .NET 6 project
 
 ```
 
-What this means is C# reference types will be treated as Non nullable by default. Does it below does not compile.
+What this means is C# reference types will be treated as Non nullable by default. Does this mean the below code wont compile.
 
 ```
 string s = null;
@@ -40,7 +40,7 @@ No. but it shows up this warning.
 
  {{<figure src="images/nicsharp1.png" >}}
 
-This message is trying to tell us, hey you say that string s is `not` expected to be null but here you are assigning it to null.
+This message is trying to tell us, hey you say that string `s` is `not` expected to be null but here you are assigning it to null.
 
 Now what if we mark it as `nullable` and use it in the next statement.
 
@@ -50,11 +50,11 @@ string? s = null;
 Console.WriteLine(s.Replace("c", "a"));
 ```
 
-We see this warning.
+Then we see this warning.
 
-{{<figure src="images/nicsharp1.png" >}}
+{{<figure src="images/nicsharp2.png" >}}
 
-So now we need to implement guard clauses wherever `s` is to be used or ensure it is initialized with a `non-null` value and continues to be `non-null` throught its usage in the application.
+Compiler is trying to warn us of a possible NRE, So now we need to implement guard clauses wherever `s` is to be used or ensure it is initialized with a `non-null` value and continues to be `non-null` throught its usage in the application.
 
 ```
 string? s = null;
@@ -65,13 +65,15 @@ if(!string.IsNullOrWhiteSpace(s))
 
 ### What this means is 
 
-Nullability Is:
-    A way to get compile-time warnings about possible null references
-    A way to make the intent of your code more clear to other developers
+*Nullability Is*:
 
-Nullability Is NOT:
-    A way to prevent null reference exceptions at runtime
-    A way to prevent someone from passing a null to your method or assigning a null to an object
+- A way to get compile-time warnings about possible null references
+- A way to make the intent of your code more clear to other developers
+
+*Nullability Is NOT*:
+
+- A way to prevent null reference exceptions at runtime
+- A way to prevent someone from passing a null to your method or assigning a null to an object
 
 
 
