@@ -3,7 +3,7 @@ author: "Abhilash"
 title: "What is MAUI"
 date: "2022-07-22"
 description: ".NET MAUI in a nutshell"
-tags: ["microservices"]
+tags: [".net maui"]
 ShowToc: false
 ShowBreadCrumbs: false
 draft: false

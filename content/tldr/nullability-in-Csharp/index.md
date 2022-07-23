@@ -3,7 +3,7 @@ author: "Abhilash"
 title: "Nullability in C# 10"
 date: "2022-07-19"
 description: "Brief overview of nullability in C# 10 what it is and what it isnt"
-tags: ["asp.net core", "rate-limiting"]
+tags: ["C#", "nullability"]
 ShowToc: false
 ShowBreadCrumbs: false
 draft: false
