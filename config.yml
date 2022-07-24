@@ -21,6 +21,9 @@ languages:
         weight: 1
         menu:
             main:
+                - name: Posts
+                  url: posts
+                  weight: 3
                 - name: TL;DR
                   url: tldr
                   weight: 4
@@ -112,6 +115,9 @@ params:
     ShowCodeCopyButtons: true
     ShowToc: true
     comments: true
+    ShowAllPagesInArchive: true
+    mainSections: 
+      - posts
     images: ["papermod-cover.png"]
 
     profileMode:
