@@ -32,3 +32,5 @@ A simple case in point is third party login using google
 ### Where does OpenIdConnect come in
 
 https://chsakell.com/2019/03/11/asp-net-core-identity-series-oauth-2-0-openid-connect-identityserver/
+
+https://www.clowder.com/post/why-your-organization-should-be-using-oauth-2.0
