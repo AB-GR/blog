@@ -169,7 +169,7 @@ So with `IComparable<T>` we sort of plugin a certain implementation of `T` it co
 {{<figure src="images/ICompPlugin.png" >}}
 
 
-Here is the final version of the code.
+Here is the final version of the code, I would recommend debugging through this code to understand it better.
 
 ```
 public class Person : IComparable<Person>
