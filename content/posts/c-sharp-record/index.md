@@ -1,8 +1,8 @@
 ---
 author: "Abhilash"
-title: "What is a C\# Record"
+title: "What is a C# Record"
 date: "2022-07-31"
-description: "What are C\# records and what problem do they solve"
+description: "What are C# records and what problem do they solve"
 tags: ["c-sharp", "record"]
 ShowToc: false
 ShowBreadCrumbs: false

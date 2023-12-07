@@ -3,7 +3,7 @@ author: "Abhilash"
 title: "The power of interfaces"
 date: "2023-09-27"
 description: "Describes how interfaces enable dynamic plugging in of functionality aka runtime polymorphism"
-tags: ["C#", "interfaces", "polymorphism"]
+tags: ["C-sharp", "interfaces", "polymorphism"]
 ShowToc: false
 ShowBreadCrumbs: false
 draft: false
