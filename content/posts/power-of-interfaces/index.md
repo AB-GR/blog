@@ -285,9 +285,9 @@ from this we should understand that somewhere in the .NET framework library code
 IComparable<int>.CompareTo(Object? value)
 ``` 
 
-must be doing something like this 
+must be doing something roughly like this 
 
 ```
-return this.value < value ? -1 : this.value == value ? 0 : 1;
+return this.value < (int)value ? -1 : this.value == (int)value ? 0 : 1;
 ```
 
