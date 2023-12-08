@@ -118,7 +118,7 @@ params:
     ShowAllPagesInArchive: true
     mainSections: 
       - posts
-    images: ["papermod-cover.png"]
+    images: ["code-zen-cover.png"]
 
     profileMode:
         enabled: false
