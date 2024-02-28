@@ -132,7 +132,7 @@ public static void CustomSort<T>(this List<T> list) where T : IComparable<T>
 ```
 means that we are defining an [extension method](https://www.geeksforgeeks.org/extension-method-in-c-sharp/) on `List<T>` and we are stating a [generic](https://www.programiz.com/csharp-programming/generics) constraint `where T : IComparable<T>` means that this method `CustomSort` can only be invoked by a `List` of a type `T` where `T` implements `IComparable`.
 
-So `List<Person>` can call `CustomSort` only if `Person` implements `IComparable<Person>`, otherwise we get this compile time error.
+So `List<Person>` can call `CustomSort` only if `Person` implements `IComparable<Person>`, otherwise we get this compile time error, this is a bit different from how .NET framework library has done this in the sense it is checking only at run time for an `IComparable<Person>` implementation.
 
 So if we do the below without `Person` implementing `IComparable`
 
