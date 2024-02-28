@@ -1,7 +1,7 @@
 ---
 author: "Abhilash"
 title: "The power of interfaces"
-date: "2023-09-27"
+date: "2024-02-28"
 description: "Describes how interfaces enable dynamic plugging in of functionality aka runtime polymorphism"
 tags: ["C-sharp", "interfaces", "polymorphism"]
 ShowToc: false
@@ -10,7 +10,7 @@ draft: false
 ---
 
 ### Prologue
-Couple of weeks ago I took a session on C# & SOLID for a set of new hires to our [Org](https://carestack.com/). As a part of explaining types in C# we chanced upon interfaces. I reiterated to them how I had difficulty in understanding the power of interfaces when I was a new bean and how over the years it dawned on me that how this simple looking type is so powerful that it drives or enables a plugin or component driven architecture. 
+Some time back I took a session on C# & SOLID for a set of new hires to our [Org](https://carestack.com/). As a part of explaining `types in C#` we also looked into interfaces. I recalled how I had difficulty in understanding the power of interfaces when I was a new bean like them and how over the years it dawned on me that how this simple looking type is so powerful that it drives or enables a plugin or component driven architecture. 
 
 So this post is an attempt explain how interfaces go about doing the same.
 
