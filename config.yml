@@ -137,7 +137,7 @@ params:
         Title: ""
         Content: >
             Hey 👋, I'm Abhi.
-            - This is my space where I try to share my learnings in a simplified manner
+             - This is a space where I explore and write about programming, engineering practices, product development, and the business of software.
 
     socialIcons:
         - name: github
